@@ -2,7 +2,7 @@
 """ 3. Auth class
 """
 
-import request from flask
+from flask import Flask, request
 
 class Auth:
   """
