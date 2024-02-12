@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+""" 3. Auth class
+"""
+
 import request from flask
 
 class Auth:
