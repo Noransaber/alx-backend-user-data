@@ -15,17 +15,17 @@ class Auth:
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """
         4. require_auth function"""
-        # Check if the exculded_paths list is empty, or None
-        if not excluded_paths or excluded_paths is None:
-            return True
-
-        # Check if the path is none or has a value
+        # Check if the path is None
         if path is None:
             return True
 
-        # Check if the path is in the exculded_paths list
+        # Check if the excluded_paths list is None or empty
+        if not excluded_paths:
+            return True
+
+        # Check if the path is in the excluded_paths list
         for excluded_path in excluded_paths:
-            if fnmatch.fnmatch(path, excluded_path):
+            if fnmatch.fnmatch(path.rstrip('/'), excluded_path.rstrip('/')):
                 return False
         return True
 
